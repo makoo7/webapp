@@ -1,4 +1,4 @@
-# Integration of graphql with nodejs (Express Framwork).
+# Integration of graphql with Express
  it needs as following: <br/>
  nodejs intalled <br/>
  npm installed <br/>
