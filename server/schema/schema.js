@@ -37,7 +37,7 @@ const StudentType = new GraphQLObjectType({
             }
         }
     })
-});
+}); 
 
 const StandardType = new GraphQLObjectType({
     name:'Standard',
