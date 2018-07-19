@@ -5,7 +5,8 @@ const {
     GraphQLObjectType, 
     GraphQLString, 
     GraphQLSchema,
-    GraphQLID 
+    GraphQLID,
+    GraphQLList 
 } = graphql;
 
 var students = [
@@ -28,7 +29,13 @@ const StudentType = new GraphQLObjectType({
     fields: () => ({
         id: { type: GraphQLID },
         name: { type: GraphQLString },
-        standard: { type: GraphQLString }
+        standard: { type: GraphQLString },
+        classteacher:{
+            type:StandardType,
+            resolve(parent,args){
+                return _.find(standards,{ class: parent.standard });
+            }
+        }
     })
 });
 
@@ -37,7 +44,13 @@ const StandardType = new GraphQLObjectType({
     fields:() => ({
         id:{type:GraphQLID},
         class:{ type:GraphQLString },
-        classteacher:{ type:GraphQLString }
+        classteacher:{ type:GraphQLString },
+        students:{
+            type: new GraphQLList(StudentType),
+            resolve(parent, args){
+                return _.filter(students, { standard: parent.class});
+            }
+        }
     })
 });
 
@@ -53,9 +66,9 @@ const RootQuery = new GraphQLObjectType({
         },
         standard:{
             type:StandardType,
-            args:{ id:{type: GraphQLID} },
+            args:{ class:{type: GraphQLID} },
             resolve(parent, args){
-                return _.find(standards,{id: args.id});
+                return _.find(standards,{class: args.class});
             }
         }
     }
