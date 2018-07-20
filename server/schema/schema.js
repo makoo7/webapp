@@ -70,7 +70,20 @@ const RootQuery = new GraphQLObjectType({
             resolve(parent, args){
                 return _.find(standards,{class: args.class});
             }
+        },
+        students:{
+            type: new GraphQLList(StudentType),
+            resolve(parent,args){
+                return students;
+            }
+        },
+        standards:{
+            type: new GraphQLList(StandardType),
+            resolve(parent,args){
+                return standards;
+            }
         }
+
     }
 });
 
