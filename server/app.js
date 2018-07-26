@@ -7,8 +7,7 @@ const app = express();
 
 app.use(cors());
 
-// mongoose.connect('mongodb://<username>:<password>@<connectionstring>',{useNewUrlParser: true});
-mongoose.connect('mongodb://mak:test123123@ds243931.mlab.com:43931/graphql-mongo',{useNewUrlParser: true});
+mongoose.connect('mongodb://<username>:<password>@<connectionstring>',{useNewUrlParser: true});
 
 mongoose.connection.once('open',()=>{
     console.log('connection to mongoose successfully');
