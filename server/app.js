@@ -7,7 +7,7 @@ const app = express();
 
 app.use(cors());
 
-mongoose.connect('mongodb://<username>:<password>@<connectionstring>',{useNewUrlParser: true});
+// mongoose.connect('mongodb://<username>:<password>@<connectionstring>',{useNewUrlParser: true});
 
 mongoose.connection.once('open',()=>{
     console.log('connection to mongoose successfully');

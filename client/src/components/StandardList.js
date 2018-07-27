@@ -12,12 +12,27 @@ const getStandardQuery = gql`
 `
 
 class StandardList extends Component {
+  
+  // console.log(this.props);
+  displayStandard() {
+    var data = this.props.data;
+    if (data.loading) {
+      return (<div>loading please wait....</div>);
+    } else {
+      return data.standards.map(standard => {
+        return (
+          <li key={ standard.class }><span>Standard: { standard.class }</span> {/*<span>Classteacher: {standard.classteacher}</span>*/}</li>
+        );
+      });
+    }
+  };
+
+  
   render() {
-    // console.log(this.props);
     return (
       <div>
         <ul className="standard-list">
-            <li>Mitesh prajapati</li>
+        { this.displayStandard() }
         </ul>
       </div>
     );

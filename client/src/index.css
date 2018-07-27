@@ -5,3 +5,18 @@ body {
 h1{
   color:#fff;
 }
+
+.standard-list{
+  width: 10%;
+}
+.standard-list li{
+  color:yellow;
+  background-color:darkslategray;
+  border: 1px solid palevioletred;
+  padding: 3%;
+  border-radius: 5%;
+  margin-top:2%;
+}
+.standard-list li span{
+  color:#fff;
+}
