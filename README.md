@@ -1,4 +1,4 @@
-# Integration of graphql with NodeJs
+# Integration of graphql with ReactJs
  it needs as following: <br/>
  nodejs intalled <br/>
  npm installed <br/>
