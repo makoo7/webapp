@@ -3,6 +3,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 // components
 import StandardList from './components/StandardList';
+import AddStudent from './components/AddStudent';
 
 // apollo integration.
 const client = new ApolloClient({
@@ -16,6 +17,7 @@ class App extends Component {
         <div className="App">
           <h1>Standard List</h1>
           <StandardList />
+          <AddStudent />
         </div>
       </ApolloProvider>
     );

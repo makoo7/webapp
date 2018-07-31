@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
-import {gql} from 'apollo-boost';
 import {graphql} from 'react-apollo';
-
-const getStandardQuery = gql`
-{
-  standards{
-    class
-    classteacher
-  }
-}
-`
+import {getStandardQuery} from '../queries/queries';
 
 class StandardList extends Component {
   
