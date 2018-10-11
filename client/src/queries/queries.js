@@ -22,4 +22,15 @@ mutation($name:String!, $standard:String!){
     }
 }
 `
-export {getStandardsQuery, getStandardQuery, AddStudentMutation};
+const getStandardDetailQuery = gql`
+  query($id:String){
+    standard(class: $id){
+      classteacher
+      students{
+        name
+        standard
+      }
+    }
+  }
+`
+export {getStandardsQuery, getStandardQuery, AddStudentMutation, getStandardDetailQuery};

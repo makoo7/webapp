@@ -25,33 +25,39 @@ class AddStudent extends Component {
 
     submitForm(e){
         e.preventDefault();
-        //console.log(this.state);
         this.props.AddStudentMutation({
             variables:{
                 name:this.state.name,
                 standard:this.state.standard
-            }
+            },
+            refetchQueries: [{ query: getStandardsQuery }]
         });
     }
 
     render(){
         return (
-        <form id="add-student" onSubmit={ this.submitForm.bind(this) }>
-            <div className="field">
-            <label>Full Name: </label>
-                <input type="text" id="name" name="name" onChange={ (e) => this.setState({name: e.target.value}) } />  
-            </div>
-            <div className="field">
-            <label>Select Standard: </label>
-                <select id="standard" name="standard" onChange={ (e) => this.setState({standard: e.target.value}) } >
-                    <option value="">select</option>
-                    {this.displayStandard()}
-                </select>
-            </div>
-            <div className="field">
-                <button>Submit</button>
-            </div>
-        </form>
+        <div className="student-class">    
+            <form id="add-student" className="form" onSubmit={ this.submitForm.bind(this) }>
+                {/* <div className="form-group">
+                    <h3>Add Student</h3>
+                </div> */}
+                <div className="form-group">
+                <label>Full Name: </label>
+                    <input type="text" id="name" className="form-control" name="name" onChange={ (e) => this.setState({name: e.target.value}) } />  
+                </div>
+                <div className="form-group">
+                <label>Select Standard: </label>
+                    <select id="standard" name="standard" className="form-control" onChange={ (e) => this.setState({standard: e.target.value}) } >
+                        <option value="">select</option>
+                        {this.displayStandard()}
+                    </select>
+                </div>
+                <div className="form-group">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Clear</button>
+                </div>
+            </form>
+        </div>
         );
     }
 }

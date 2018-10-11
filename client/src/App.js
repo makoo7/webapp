@@ -4,6 +4,7 @@ import { ApolloProvider } from 'react-apollo';
 // components
 import StandardList from './components/StandardList';
 import AddStudent from './components/AddStudent';
+import LoginForm from './components/LoginForm';
 
 // apollo integration.
 const client = new ApolloClient({
@@ -15,7 +16,7 @@ class App extends Component {
     return (
       <ApolloProvider client={client}>
         <div className="App">
-          <h1>Standard List</h1>
+          {/* <LoginForm /> */}
           <StandardList />
           <AddStudent />
         </div>
